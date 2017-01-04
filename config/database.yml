@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: testDemo_development
+  pool: 5
+  username: c238
+  password: password

@@ -1,0 +1,22 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Sample App</title>
+  </head>
+  <body>
+    <h1>Sample App</h1>
+    <p>
+      This is the home page for the
+            sample application.
+    </p>
+    <ul>
+      <li>
+        <%= link_to "About", staticpages_about_path%>
+      </li>
+      <li>
+        <%= link_to "Help", staticpages_help_path%>
+      </li>
+    </ul>
+  </body>
+</html>
