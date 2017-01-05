@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'staticpages/contact'
+
+  get 'staticpages/signup'
+
+  get 'staticpages/signin'
+
   root 'staticpages#home'
 
   get 'staticpages/home'

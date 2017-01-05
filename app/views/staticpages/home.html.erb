@@ -1,22 +1,14 @@
-<!-- <% provide(:title, "Home") %> -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- <title><%= yield(:title) %> | Ruby on Rails Sample App</title> -->
-  </head>
-  <body>
-    <h1>Sample App</h1>
-    <p>
-      This is the home page for the
-            sample application.
-    </p>
-    <ul>
-      <li>
-        <%= link_to "About", staticpages_about_path%>
-      </li>
-      <li>
-        <%= link_to "Help", staticpages_help_path%>
-      </li>
-    </ul>
-  </body>
-</html>
+<div class="center jumbotron">
+  <h1>Welcome to the Sample Layout App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", staticpages_signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
