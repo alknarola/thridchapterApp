@@ -37,4 +37,5 @@ class StaticpagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "SignIn | Ruby on Rails Tutorial Sample App"
   end
 
+
 end
