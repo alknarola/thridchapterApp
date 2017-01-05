@@ -1,11 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
    <div class="container">
-    <%= link_to "layout app", '#', id: "logo" , style:"color:white;font:larger bold;"%>
+    <%= link_to "layout app", root_path, id: "logo"%>
      <nav>
        <ul class="nav navbar-nav navbar-right">
-         <li><%= link_to "Home",   staticpages_home_path %></li>
-         <li><%= link_to "Help",    staticpages_help_path %></li>
-         <li><%= link_to "Log in", staticpages_signin_path %></li>
+         <li><%= link_to "Home",   root_path %></li>
+         <li><%= link_to "Help",   help_path %></li>
+         <li><%= link_to "Log in", signin_path %></li>
+         <li><%= link_to "Sign Up now", signup_path %></li>
        </ul>
      </nav>
    </div>
