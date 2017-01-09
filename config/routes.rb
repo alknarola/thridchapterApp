@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/contact',to: 'staticpages#contact'
 
-  get '/signup',to: 'staticpages#signup'
+  
 
   get '/signin',to: 'staticpages#signin'
 
