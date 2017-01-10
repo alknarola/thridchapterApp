@@ -2,6 +2,7 @@ class User < ApplicationRecord
   include Gravtastic
   is_gravtastic
 
+
   before_save { email.downcase! }
   validates :name, presence: true,length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -9,7 +10,7 @@ class User < ApplicationRecord
 
   # validates(:name, presence: true)
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true, length: { minimum: 6 }
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

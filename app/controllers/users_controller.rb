@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def new
     @user=User.new
   end
+
   def show
     @user=User.last
     #@user=User.find_by_id(298486374)
@@ -18,12 +19,10 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
   private
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation)
   end
-
-
-
 
 end
