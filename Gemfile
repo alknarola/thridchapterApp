@@ -62,4 +62,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt',         '3.1.11'
 gem 'gravatar_for'
 gem 'gravtastic'
-gem 'validates_email_format_of'

@@ -3,12 +3,14 @@ class UsersController < ApplicationController
     @user=User.new
   end
 
+#show the current user list
   def show
     @user=User.last
     #@user=User.find_by_id(298486374)
 
   end
 
+#it will create the new user(signup)
   def create
     @user=User.new(user_params)
     if @user.save
