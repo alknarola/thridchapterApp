@@ -14,10 +14,14 @@ Rails.application.routes.draw do
   get '/about',     to: 'staticpages#about'
 
   #user controller routes
+  get '/index',     to: 'users#index'
   get '/signup',    to: 'users#new'
   get '/show',      to: 'users#show'
+  # delete '/delete', to: 'users#destroy'
 
   post '/signup',   to: 'users#create'
+  get '/edit',      to: 'users#edit'
+  patch '/edit',    to: 'users#update'
   resources :users
 
   #session controller routes

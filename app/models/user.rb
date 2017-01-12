@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   # validates(:name, presence: true)
   has_secure_password
-  validates :password_confirmation, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   #it will return the digest string
   def User.digest(string)
