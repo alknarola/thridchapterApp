@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-      @users = User.paginate(page: params[:page]).order('created_at DESC')
+      @users = User.paginate(page: params[:page],per_page:10).order('created_at DESC')
   end
 
 
@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 
   #show the current user list
   def show
-    @user=User.last
-    redirect_to root_url
+    @user=User.find(params[:id])
+    @microposts = @user.usermicroposts.paginate(page: params[:page],per_page:5)
   end
 
   #it will create the new user(signup)
@@ -56,10 +56,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  # Confirms an admin user.
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
 
   #destroying userby the admin
   def destroy
@@ -68,17 +64,25 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  # Confirms the correct user.
-  def correct_user
-    @user = User.last
-    redirect_to(root_url) unless current_user?(@user)
-  end
 
-  #private method for the create new user
   private
-  def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
-  end
 
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+    end
+
+    # Before filters
+
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 
 end

@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+   has_many :usermicroposts, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
   #for gravatar images
   include Gravtastic
@@ -99,6 +102,12 @@ class User < ApplicationRecord
       SecureRandom.urlsafe_base64
     end
   end
+
+  # Defines a proto-feed.
+    # See "Following users" for the full implementation.
+    def feed
+      Usermicropost.where("user_id = ?", id)
+    end
 
   private
 
